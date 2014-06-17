@@ -32,7 +32,6 @@ endfunction
 
 function! s:unite_source.gather_candidates(args, context)
   let l:root_pat = s:ghq_root_prefix_pattern()
-  echomsg l:root_pat
   return map(
     \   split(unite#util#system(s:ghq_command . ' list --full-path'), "\n"),
     \   '{
