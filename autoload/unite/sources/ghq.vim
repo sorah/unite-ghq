@@ -23,7 +23,11 @@ endfunction
 
 function! s:ghq_root_prefix_pattern()
   let l:roots = s:ghq_roots()
-  return "\\V" . join(l:roots, "\\|")
+  if !empty(l:roots)
+    return "\\V" . join(l:roots, "\\|")
+  else
+    return "\\V" . expand('~/.ghq') . "\/"
+  endif
 endfunction
 
 function! unite#sources#ghq#define()
